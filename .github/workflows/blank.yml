@@ -19,8 +19,9 @@ jobs:
       region: us-east-1
       account: 123456789012
 
-      username: ${{ secrets.USERNAME}}
-      password: ${{ secrets.PASSWORD}}
+      username: ${{ secrets.USERNAME }}
+      password: ${{ secrets.PASSWORD }}
+
 
     runs-on: ubuntu-latest
 
@@ -37,11 +38,12 @@ jobs:
         echo "Este es el valor de username: ${{ env.username }}"
         echo "Este es el valor de password: ${{ env.password }}"
 
+        echo "Project version is ${{ vars.PROJECT_VERSION }}"
+
     - name: "Mostrando valores solo si el usuario es correcto"
       if: ${{ env.username != '' && env.password != '' }}
       run:
         echo "El usuario es correcto"
-        
     
     - name: "Mostrar Variables por defecto"
       run: |
