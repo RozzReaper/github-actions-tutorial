@@ -35,3 +35,5 @@ jobs:
     - name: "Mostrar Variables por defecto"
       run: |
         echo "Evento: ${{ toJson(github.event) }}"
+        echo "Github_ACTOR: ${{ github.actor }}"
+        echo "Github_REPOSITORY: ${{ github.repository }}"
