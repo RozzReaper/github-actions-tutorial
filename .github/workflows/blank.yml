@@ -19,6 +19,9 @@ jobs:
       region: us-east-1
       account: 123456789012
 
+      username: ${{ secrets.USERNAME}}
+      password: ${{ secrets.PASSWORD}}
+
     runs-on: ubuntu-latest
 
     steps:
@@ -26,11 +29,13 @@ jobs:
       run: echo "Hola Mundo"
 
     - name: "Mostrar Variables de Entorno"
-      if: ${{ env.platform == 'azure' }}
       run: |
         echo "Plataforma: ${{ env.platform }}"
         echo "Region: ${{ env.region }}"
         echo "Cuenta: ${{ env.account }}"
+
+        echo "Este es el valor de username: ${{ env.username }}"
+        echo "Este es el valor de password: ${{ env.password }}"
     
     - name: "Mostrar Variables por defecto"
       run: |
